@@ -7,3 +7,6 @@ body {
    /* background-color: skyblue; */
    background-image: url("./Images/flappybirdbg.png");
 }
+canvas {
+    touch-action: none;
+}
