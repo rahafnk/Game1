@@ -186,3 +186,6 @@ function detectCollision(a, b) {
         audioGameOver.pause();
         }
         setTimeout(stopAudio, 8000);
+
+
+
