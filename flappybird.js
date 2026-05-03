@@ -64,10 +64,9 @@ window.onload = function() {
     
      requestAnimationFrame(update);
      setInterval(placePipe, 1500);
-      board.addEventListener("click", moveBird);
+     board.addEventListener("click", moveBird);
      document.addEventListener("keydown", moveBird);
      board.addEventListener("touchstart", moveBird);
-}
 }
 
 function update() {
@@ -113,11 +112,13 @@ function update() {
     context.fillStyle = "white";
     context.font = "45px sans-serif";
     context.fillText(score, 5, 45);
+    
+     let audioplayed = false;
+        if (gameOver && !audioplayed){
+            audioGameOver.play();
+            audioplayed = true;
+        }
 
-    if (gameOver) {
-        context.fillText("GAME OVER!!", 5, 90);
-        audioGameOver.play();
-    }
 }
 
 function placePipe() {
@@ -160,7 +161,7 @@ function moveBird(e){
             bird.y = birdY;
             pipeArray = [];
             score = 0;
-            gameOver = false;
+            gameOver = false; 
             audioplayed = false;
         }
 
@@ -184,6 +185,4 @@ function detectCollision(a, b) {
     function stopAudio(){
         audioGameOver.pause();
         }
-        setTimeout(stopAudio, 8000)
-
-
+        setTimeout(stopAudio, 8000);
