@@ -64,8 +64,9 @@ window.onload = function() {
     
      requestAnimationFrame(update);
      setInterval(placePipe, 1500);
+      board.addEventListener("click", moveBird);
      document.addEventListener("keydown", moveBird);
-    board.addEventListener("touchstart", moveBird);
+     board.addEventListener("touchstart", moveBird);
 }
 }
 
@@ -159,7 +160,8 @@ function moveBird(e){
             bird.y = birdY;
             pipeArray = [];
             score = 0;
-            gameOver = false; 
+            gameOver = false;
+            audioplayed = false;
         }
 
     }
@@ -182,8 +184,6 @@ function detectCollision(a, b) {
     function stopAudio(){
         audioGameOver.pause();
         }
-        setTimeout(stopAudio, 8000);
-
-    clearInterval(loop);
+        setTimeout(stopAudio, 8000)
 
 
